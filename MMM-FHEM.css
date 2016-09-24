@@ -1,0 +1,59 @@
+.MMM-FHEM .flex-container {
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.MMM-FHEM .module-content .flex-item {
+  /*margin: auto;*/
+}
+
+.region.left .MMM-FHEM .flex-container,
+.region.center .MMM-FHEM .flex-container,
+.region.right .MMM-FHEM .flex-container {
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+  max-width: 300px;
+}
+
+.region.left .MMM-FHEM .flex-container .flex-item > div,
+.region.center .MMM-FHEM .flex-container .flex-item > div,
+.region.right .MMM-FHEM .flex-container .flex-item > div {
+  display: inline-block;
+  min-width: 70px;
+}
+
+.MMM-FHEM .flex-item .title {
+  border-bottom: 1px solid #666;
+}
+
+.region.left .MMM-FHEM .flex-item .title,
+.region.center .MMM-FHEM .flex-item .title,
+.region.right .MMM-FHEM .flex-item .title{
+  border-bottom: none;
+}
+
+.MMM-FHEM .flex-item .value {
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+.region.left .MMM-FHEM .flex-item .value,
+.region.center .MMM-FHEM .flex-item .value,
+.region.right .MMM-FHEM .flex-item .value{
+  margin: 0;
+  font-size: 1em;
+}
+
+.MMM-FHEM .value i {
+  margin-right: 8px;
+  font-size: 0.75em;
+
+}
