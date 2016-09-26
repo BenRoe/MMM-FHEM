@@ -16,7 +16,7 @@ Module.register('MMM-FHEM', {
     host: 'localhost',
     port: '8083',
     initialLoadDelay: 1000,
-    updateInterval: 5 * 60 * 1000, // every 5 minutes
+    updateInterval: 1 * 60 * 1000, // every 1 minutes
   },
 
   // Define required scripts.
