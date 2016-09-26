@@ -67,27 +67,34 @@ The following properties can be configured:
 		<tr>
 			<td><code>host</code></td>
 			<td>Hostname/IP of the FHEM Server.  
-        Is only necessary, if FHEM and Magic-Mirror is <u>not</u> on the same machine (Raspberry Pi).  
+        Is only necessary, if FHEM and Magic-Mirror is <u>not</u> on the same machine (Raspberry Pi).
+        <br>
 				<br>
-        <b>Possible values:</b> <code>localhost</code> or a IP  
+        <b>Possible values:</b> <code>localhost</code> or a IP
+        <br>
 				<b>Default value:</b> <code>localhost</code>
 			</td>
 		</tr>
 
 		<tr>
 			<td><code>port</code></td>
-			<td>FHEM Port  
-				<br>
-        <b>Possible values:</b> any number  
+			<td>FHEM Port
+        <br>
+        <br>
+        <b>Possible values:</b> any number
+        <br>
 				<b>Default value:</b> <code>8083</code>
 			</td>
 		</tr>
 
     <tr>
 			<td><code>deviceNames</code></td>
-			<td>Array of FHEM device names.  
-        Go to the FHEM Web-UI, find the device under Unsorted or another room and find <code>NAME</code> under <code>Internals</code>.  
-        <b>Required</b>  
+			<td>Array of FHEM device names.
+        <br>
+        Go to the FHEM Web-UI, find the device under Unsorted or another room and find <code>NAME</code> under <code>Internals</code>.
+        <br>
+        <b>Required</b>
+        <br>
 				<br>
         <code>['...','...','...']</code>
 			</td>
@@ -96,23 +103,28 @@ The following properties can be configured:
     <tr>
 			<td><code>deviceReadings</code></td>
 			<td>Array with Objects of the FHEM device readings name, icon, and suffix.
-				<br>
-        <b>name:</b> Name of the Reading (Required)  
-        <b>icon:</b> CSS class of an icon ([Font-Awesome](http://fontawesome.io/icons/) and [Weather Icons](https://erikflowers.github.io/weather-icons/) are pre installed)  
-        <b>suffix:</b> any string/text  
         <br>
-        ```javascript
+				<br>
+        <b>name:</b> Name of the Reading (Required)
+        <br>
+        <b>icon:</b> CSS class of an icon ([Font-Awesome](http://fontawesome.io/icons/) and [Weather Icons](https://erikflowers.github.io/weather-icons/) are pre installed)
+        <br>
+        <b>suffix:</b> any string/text
+        <br>
+        <br>
+        <code>javascript
         [
           { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
           { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
         ]
-        ```  
+        </code>
 			</td>
 		</tr>
 
     <tr>
 			<td><code>initialLoadDelay</code></td>
-			<td>The initial delay before loading. (Milliseconds)  
+			<td>The initial delay before loading. (Milliseconds)
+        <br>
 				<br>
         <b>Default value:</b> <code>1000</code> 1 second
 			</td>
@@ -120,9 +132,11 @@ The following properties can be configured:
 
     <tr>
 			<td><code>updateInterval</code></td>
-			<td>How often does the content should to be updated? (Milliseconds)  
+			<td>How often does the content should to be updated? (Milliseconds)
         <br>
-        <b>Possible values:</b> <code>1000</code> 1 second - <code>86400000</code> 24 hours  
+        <br>
+        <b>Possible values:</b> <code>1000</code> 1 second - <code>86400000</code> 24 hours
+        <br>
 				<b>Default value:</b> <code>60000</code> 1 minute
 			</td>
 		</tr>
