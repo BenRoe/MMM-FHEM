@@ -107,12 +107,12 @@ The following properties can be configured:
 				<br>
         <b>name:</b> Name of the Reading (Required)
         <br>
-        <b>icon:</b> CSS class of an icon ([Font-Awesome](http://fontawesome.io/icons/) and [Weather Icons](https://erikflowers.github.io/weather-icons/) are pre installed)
+        <b>icon:</b> CSS class of an icon (<a href="http://fontawesome.io/icons/">Font-Awesome</a> and <a href="https://erikflowers.github.io/weather-icons/">Weather Icons</a> are pre installed)
         <br>
         <b>suffix:</b> any string/text
         <br>
         <br>
-        <code>javascript
+        <code>
         [
           { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
           { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
@@ -143,8 +143,3 @@ The following properties can be configured:
 
 	</tbody>
 </table>
-
-## ToDo
-- icons
-- sd-card available space
-- better indication for the system load
