@@ -117,6 +117,7 @@ The following properties can be configured:
 			<td>Array of objects.
         <br>
         Object for the different FHEM devices.
+<<<<<<< HEAD
         <pre><code>
           { deviceName: 'FhemDeviceName1',
             deviceReadings: [
@@ -125,6 +126,16 @@ The following properties can be configured:
                             ],
           },
         </code></pre>
+=======
+<pre><code>
+  { deviceName: 'FhemDeviceName1',
+    deviceReadings: [
+                      { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
+                      { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
+                    ],
+  },
+</code></pre>
+>>>>>>> - fixed typo in readme
         <b>deviceName</b>: Go to the FHEM Web-UI, find the device under Unsorted or another room and find <code>NAME</code> under <code>Internals</code>.
         <br />
         <b>deviceReadings</b>: array of objects for the device readings you want to display.
