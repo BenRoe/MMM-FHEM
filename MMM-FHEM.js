@@ -7,8 +7,8 @@
  * MIT Licensed.
  */
 
-// TODO: icons for temperature and humidity
-// TODO: make it more sexy
+// TODO: implement the weather icons
+// TODO: add support for https
 
 Module.register('MMM-FHEM', {
 
@@ -82,20 +82,20 @@ Module.register('MMM-FHEM', {
       deviceWrapper.appendChild(titleWrapper);
 
       // add reading 1
-      device.values.forEach(function(element, index, array) {
-        var value = element;
+      device.values.forEach(function(elementValue, indexValue, arrayValue) {
+        var value = elementValue;
         var valueWrapper = document.createElement('div');
 
         //add icon
-        if (self.defaults.deviceReadings[index].icon) {
-          valueWrapper.innerHTML = '<i class="dimmed ' + self.defaults.deviceReadings[index].icon + '"></i>';
+        if (self.config.devices[index].deviceReadings[indexValue].icon) {
+          valueWrapper.innerHTML = '<i class="dimmed ' + self.config.devices[index].deviceReadings[indexValue].icon + '"></i>';
         }
 
         valueWrapper.innerHTML += value;
 
         // add suffix
-        if (self.defaults.deviceReadings[index].suffix) {
-          valueWrapper.innerHTML += self.defaults.deviceReadings[index].suffix;
+        if (self.config.devices[index].deviceReadings[indexValue].suffix) {
+          valueWrapper.innerHTML += self.config.devices[index].deviceReadings[indexValue].suffix;
         }
         valueWrapper.className = 'value medium bright';
         deviceWrapper.appendChild(valueWrapper);

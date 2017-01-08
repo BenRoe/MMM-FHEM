@@ -18,11 +18,16 @@ module.exports = NodeHelper.create({
 
   buildFhemUrl: function (config) {
     var deviceString = '';
-    config.deviceNames.forEach(function(element, index, array) {
-      deviceString += element + ',';
+    config.devices.forEach(function(element, index, array) {
+      deviceString += element.deviceName + ',';
     });
-    return 'http://' + config.host + ':' + config.port +
-            '/fhem?cmd=jsonlist2%20NAME=' + deviceString + '&XHR=1';
+    if (config.https) {
+      return 'https://' + config.host + ':' + config.port +
+              '/fhem?cmd=jsonlist2%20NAME=' + deviceString + '&XHR=1';
+    } else {
+      return 'http://' + config.host + ':' + config.port +
+              '/fhem?cmd=jsonlist2%20NAME=' + deviceString + '&XHR=1';
+    }
   },
 
   getFhemJson: function(config, callback) {
@@ -73,7 +78,7 @@ module.exports = NodeHelper.create({
     resultsArray.forEach(function(element, index, array) {
       var device = {};
       // save value of property 'name' an array
-      var readingsName = _.pluck(self.config.deviceReadings, 'name');
+      var readingsName = _.pluck(self.config.devices[index].deviceReadings, 'name');
 
       device.name = self.getDeviceName(element);
       device.values = self.getReadingsValue(readingsName, element);

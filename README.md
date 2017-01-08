@@ -28,6 +28,12 @@ npm install
 
 Configure the module in your `config.js` file.
 
+## Update the module
+
+Navigate into the `MMM-FHEM` folder with `cd ~/MagicMirror/modules/MMM-FHEM` and get the latest code from Github with `git pull`.
+
+If you haven't changed the modules, this should work without any problems. Type `git status` to see your changes, if there are any, you can reset them with `git reset --hard`. After that, git pull should be possible.
+
 ## Using the module
 
 To use this module, add it to the modules array in the `config/config.js` file:
@@ -37,15 +43,22 @@ modules: [
     module: 'MMM-FHEM',
     position: 'bottom_bar',
     config: {
-      deviceNames: [
-                    'FhemDeviceName1',
-                    'FhemDeviceName2',
-                    'FhemDeviceName3',
-                   ],
-      deviceReadings: [
-                        { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
-                        { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
-                      ],
+      host: 'localhost',
+      port: '8083',
+      https: false,
+      devices: [
+                  { deviceName: 'FhemDeviceName1',
+                    deviceReadings: [
+                                      { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
+                                      { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
+                                    ],
+                  },
+                  { deviceName: 'FhemDeviceName2',
+                    deviceReadings: [
+                                      { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
+                                    ],
+                  },
+                ],
     },
   },
 ]
@@ -89,36 +102,38 @@ The following properties can be configured:
 		</tr>
 
     <tr>
-			<td><code>deviceNames</code></td>
-			<td>Array of FHEM device names.
+			<td><code>https</code></td>
+			<td>If your FHEM use https
         <br>
-        Go to the FHEM Web-UI, find the device under Unsorted or another room and find <code>NAME</code> under <code>Internals</code>.
         <br>
-        <b>Required</b>
+        <b>Possible values:</b> <code>true</code> or <code>false</code>
         <br>
-				<br>
-        <code>['...','...','...']</code>
+				<b>Default value:</b> <code>false</code>
 			</td>
 		</tr>
 
     <tr>
-			<td><code>deviceReadings</code></td>
-			<td>Array with Objects of the FHEM device readings name, icon, and suffix.
+			<td><code>devices</code></td>
+			<td>Array of objects.
         <br>
-				<br>
+        Object for the different FHEM devices.
+        ```javascript
+          { deviceName: 'FhemDeviceName1',
+            deviceReadings: [
+                              { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
+                              { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
+                            ],
+          },
+        ```
+        <b>deviceName</b>: Go to the FHEM Web-UI, find the device under Unsorted or another room and find <code>NAME</code> under <code>Internals</code>.
+        <br />
+        <b>deviceReadings</b>: array of objects for the device readings you want to display.
+        <br />
         <b>name:</b> Name of the Reading (Required)
         <br>
         <b>icon:</b> CSS class of an icon (<a href="http://fontawesome.io/icons/">Font-Awesome</a> and <a href="https://erikflowers.github.io/weather-icons/">Weather Icons</a> are pre installed)
         <br>
         <b>suffix:</b> any string/text
-        <br>
-        <br>
-        <code>
-        [
-          { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
-          { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
-        ]
-        </code>
 			</td>
 		</tr>
 
