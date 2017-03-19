@@ -23,7 +23,7 @@ Module.register('MMM-FHEM', {
 
   // Define required scripts.
   getStyles: function () {
-    return ['MMM-FHEM.css'];
+    return ['MMM-FHEM.css','font-awesome.css','weather-icons.css'];
   },
 
   // Override socket notification handler.
