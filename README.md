@@ -113,6 +113,28 @@ The following properties can be configured:
 		</tr>
 
     <tr>
+			<td><code>title</code></td>
+			<td>Optionally replace the title (device name or alias) fetched from FHEM.
+        <br>
+        <br>
+        <b>Possible values:</b> any text
+        <br>
+				<b>Default value:</b> <code>null</code> (use data from FHEM)
+			</td>
+		</tr>
+
+    <tr>
+			<td><code>titleSuffix</code></td>
+			<td>Text to be inserted after the title.
+        <br>
+        <br>
+        <b>Possible values:</b> any text
+        <br>
+				<b>Default value: no suffix
+			</td>
+		</tr>
+
+    <tr>
 			<td><code>devices</code></td>
 			<td>Array of objects.
         <br>

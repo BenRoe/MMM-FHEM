@@ -17,6 +17,8 @@ Module.register('MMM-FHEM', {
     port: '8083',
     initialLoadDelay: 1000,
     updateInterval: 1 * 60 * 1000, // every 1 minutes
+    title: null,
+    titleSuffix: '',
   },
 
   // Define required scripts.
@@ -77,7 +79,11 @@ Module.register('MMM-FHEM', {
 
       // add device alias/name
       var titleWrapper = document.createElement('div');
-      titleWrapper.innerHTML = device.name;
+      if (self.config.title == null) {
+        titleWrapper.innerHTML = device.name + self.config.titleSuffix;
+      } else {
+        titleWrapper.innerHTML = self.config.title;
+      }
       titleWrapper.className = 'title';
       deviceWrapper.appendChild(titleWrapper);
 
