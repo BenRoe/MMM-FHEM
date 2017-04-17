@@ -56,6 +56,7 @@ modules: [
                   { deviceName: 'FhemDeviceName2',
                     deviceReadings: [
                                       { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
+                                      { name: 'battery', icon: 'fa fa-battery-half', suffix: '' },                                      
                                     ],
                   },
                 ],
@@ -68,94 +69,70 @@ modules: [
 
 The following properties can be configured:
 
-<table width="100%">
-	<!-- why, markdown... -->
+<table  width="100%">
 	<thead>
 		<tr>
 			<th>Option</th>
 			<th width="100%">Description</th>
 		</tr>
-	<thead>
+	</thead>
 	<tbody>
-
 		<tr>
 			<td><code>host</code></td>
-			<td>Hostname/IP of the FHEM Server.  
-        Is only necessary, if FHEM and Magic-Mirror is <u>not</u> on the same machine (Raspberry Pi).
-        <br>
-				<br>
-        <b>Possible values:</b> <code>localhost</code> or a IP
-        <br>
-				<b>Default value:</b> <code>localhost</code>
+			<td>Hostname/IP of the FHEM Server.
+            Is only necessary, if FHEM and Magic-Mirror is <u>not</u> on the same machine (Raspberry Pi).<br>
+            <b>Possible values:</b> <code>localhost</code> or a IP<br>
+			<b>Default value:</b> <code>localhost</code>
 			</td>
 		</tr>
-
 		<tr>
 			<td><code>port</code></td>
-			<td>FHEM Port
-        <br>
-        <br>
-        <b>Possible values:</b> any number
-        <br>
-				<b>Default value:</b> <code>8083</code>
+			<td>FHEM Port<br>
+                <b>Possible values:</b> any number<br>
+                <b>Default value:</b> <code>8083</code>
 			</td>
 		</tr>
-
-    <tr>
+        <tr>
 			<td><code>https</code></td>
-			<td>If your FHEM use https
-        <br>
-        <br>
-        <b>Possible values:</b> <code>true</code> or <code>false</code>
-        <br>
-				<b>Default value:</b> <code>false</code>
+			<td>If your FHEM use https<br>
+                <b>Possible values:</b> <code>true</code> or <code>false</code><br>
+                <b>Default value:</b> <code>false</code>
 			</td>
 		</tr>
-
-    <tr>
+        <tr>
 			<td><code>devices</code></td>
-			<td>Array of objects.
-        <br>
-        Object for the different FHEM devices.
+			<td>Array of objects. Object for the different FHEM devices.
 <pre><code>
-  { deviceName: 'FhemDeviceName1',
-    deviceReadings: [
-                      { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
-                      { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
-                    ],
-  },
+{ deviceName: 'FhemDeviceName1',
+  deviceReadings: [
+     { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
+     { name: 'humidity', icon: 'wi wi-humidity', suffix: '%' },
+  ],
+},
 </code></pre>
-        <b>deviceName</b>: Go to the FHEM Web-UI, find the device under Unsorted or another room and find <code>NAME</code> under <code>Internals</code>.
-        <br />
-        <b>deviceReadings</b>: array of objects for the device readings you want to display.
-        <br />
-        <b>name:</b> Name of the Reading (Required)
-        <br>
-        <b>icon:</b> CSS class of an icon (<a href="http://fontawesome.io/icons/">Font-Awesome</a> and <a href="https://erikflowers.github.io/weather-icons/">Weather Icons</a> are pre installed)
-        <br>
-        <b>suffix:</b> any string/text
-			</td>
+            <b>deviceName</b>: Go to the FHEM Web-UI, find the device under Unsorted or another room and find <code>NAME</code> under <code>Internals</code>.
+            <br />
+            <b>deviceReadings</b>: array of objects for the device readings you want to display.
+            <br />
+            <b>name:</b> Name of the Reading (Required)
+            <br>
+            <b>icon:</b> CSS class of an icon (<a href="http://fontawesome.io/icons/">Font-Awesome</a> and <a href="https://erikflowers.github.io/weather-icons/">Weather Icons</a> are pre installed)
+            <br>
+            <b>suffix:</b> any string/text
+            </td>
 		</tr>
-
-    <tr>
+        <tr>
 			<td><code>initialLoadDelay</code></td>
-			<td>The initial delay before loading. (Milliseconds)
-        <br>
-				<br>
-        <b>Default value:</b> <code>1000</code> 1 second
+			   <td>The initial delay before loading. (Milliseconds)<br>
+               <b>Default value:</b> <code>1000</code> (1 second)
 			</td>
-		</tr>
-
-    <tr>
+        </tr>
+        <tr>
 			<td><code>updateInterval</code></td>
-			<td>How often does the content should to be updated? (Milliseconds)
-        <br>
-        <br>
-        <b>Possible values:</b> <code>1000</code> 1 second - <code>86400000</code> 24 hours
-        <br>
-				<b>Default value:</b> <code>60000</code> 1 minute
+			<td>Content update interval in Milliseconds.<br>
+               <b>Possible values:</b> <code>1000</code> (1 second) to <code>86400000</code> (24 hours)<br>
+			   <b>Default value:</b> <code>60000</code> (1 minute)
 			</td>
 		</tr>
-
 	</tbody>
 </table>
