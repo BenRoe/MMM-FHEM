@@ -56,6 +56,7 @@ modules: [
                   { deviceName: 'FhemDeviceName2',
                     deviceReadings: [
                                       { name: 'temperature', icon: 'wi wi-thermometer', suffix: '&deg;' },
+                                      { name: 'battery', icon: 'fa fa-battery-half', suffix: '' },                                      
                                     ],
                   },
                 ],
@@ -128,7 +129,7 @@ The following properties can be configured:
         </tr>
         <tr>
 			<td><code>updateInterval</code></td>
-			<td>How often does the content should to be updated? (Milliseconds)<br>
+			<td>Content update interval in Milliseconds.<br>
                <b>Possible values:</b> <code>1000</code> (1 second) to <code>86400000</code> (24 hours)<br>
 			   <b>Default value:</b> <code>60000</code> (1 minute)
 			</td>
