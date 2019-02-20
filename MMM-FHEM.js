@@ -11,7 +11,6 @@
 // TODO: add support for https
 
 Module.register('MMM-FHEM', {
-
   defaults: {
     host: 'localhost',
     port: '8083',
@@ -72,35 +71,41 @@ Module.register('MMM-FHEM', {
     devices.forEach(function(element, index, array) {
       var device = element;
 
-      var deviceWrapper = document.createElement('div');
-      deviceWrapper.className = 'flex-item normal';
+        var deviceWrapper = document.createElement('div');
+        deviceWrapper.className = 'flex-item normal';
 
-      // add device alias/name
-      var titleWrapper = document.createElement('div');
-      titleWrapper.innerHTML = device.name;
-      titleWrapper.className = 'title';
-      deviceWrapper.appendChild(titleWrapper);
+        // add device alias/name
+
 
       // add reading 1
       device.values.forEach(function(elementValue, indexValue, arrayValue) {
         var value = elementValue;
-        var valueWrapper = document.createElement('div');
+        if(self.config.devices[index].deviceReadings[indexValue].notification){
+          self.sendNotification(self.config.devices[index].deviceReadings[indexValue].notification, value);
+        }
+        if (self.config.devices[index].deviceReadings[indexValue].hidden === false) {
+          var titleWrapper = document.createElement('div');
+          titleWrapper.innerHTML = self.config.devices[index].deviceReadings[indexValue].title;
+          titleWrapper.className = 'title';
+          deviceWrapper.appendChild(titleWrapper);
+          var valueWrapper = document.createElement('div');
+          //add icon
+          if (self.config.devices[index].deviceReadings[indexValue].icon) {
+            valueWrapper.innerHTML = '<i class="dimmed ' + self.config.devices[index].deviceReadings[indexValue].icon + '"></i>';
+          }
 
-        //add icon
-        if (self.config.devices[index].deviceReadings[indexValue].icon) {
-          valueWrapper.innerHTML = '<i class="dimmed ' + self.config.devices[index].deviceReadings[indexValue].icon + '"></i>';
+          valueWrapper.innerHTML += value;
+
+          // add suffix
+          if (self.config.devices[index].deviceReadings[indexValue].suffix) {
+            valueWrapper.innerHTML += self.config.devices[index].deviceReadings[indexValue].suffix;
+          }
+          valueWrapper.className = 'value medium bright';
+          deviceWrapper.appendChild(valueWrapper);
         }
 
-        valueWrapper.innerHTML += value;
-
-        // add suffix
-        if (self.config.devices[index].deviceReadings[indexValue].suffix) {
-          valueWrapper.innerHTML += self.config.devices[index].deviceReadings[indexValue].suffix;
-        }
-        valueWrapper.className = 'value medium bright';
-        deviceWrapper.appendChild(valueWrapper);
       });
-
+self.updateDom(2000);
       wrapper.appendChild(deviceWrapper);
 
     });
