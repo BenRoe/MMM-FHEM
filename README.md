@@ -1,6 +1,10 @@
 # Module: MMM-FHEM
 This [MagicMirror](https://github.com/MichMich/MagicMirror) module, shows values like temperature/humidity of [FHEM](http://fhem.de) devices.
 
+## &#x1F534; This repository is no longer maintained.
+__If you are interested to maintain this project, please contact me and i will add you to this repository.__
+
+
 ![Magic-Mirror Module MMM-FHEM screenshot](https://github.com/BenRoe/MMM-FHEM/blob/gh-pages/Screenshot1.png?raw=true)
 ![Magic-Mirror Module MMM-FHEM screenshot](https://github.com/BenRoe/MMM-FHEM/blob/gh-pages/Screenshot2.png?raw=true)
 
